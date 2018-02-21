@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.admanic.FirstTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-02-21T15:34:05" hostname="mlpc-18" time="7.645">
+  <properties/>
+  <testcase name="firstTest1" classname="com.admanic.FirstTest" time="7.645"/>
+  <system-out><![CDATA[Page title is: Google
+Page title is: Cheese! - Пошук Google
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+1519227247525	geckodriver	INFO	geckodriver 0.19.1
+1519227247529	geckodriver	INFO	Listening on 127.0.0.1:1261
+1519227247818	mozrunner::runner	INFO	Running command: "/usr/lib/firefox/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.ItAYzUmivbKe"
+
+(firefox:12784): GLib-GObject-CRITICAL **: g_object_ref: assertion 'object->ref_count > 0' failed
+
+(firefox:12784): GLib-GObject-CRITICAL **: g_object_unref: assertion 'object->ref_count > 0' failed
+
+(firefox:12784): GLib-GObject-CRITICAL **: g_object_ref: assertion 'object->ref_count > 0' failed
+
+(firefox:12784): GLib-GObject-CRITICAL **: g_object_unref: assertion 'object->ref_count > 0' failed
+1519227249730	Marionette	INFO	Listening on port 40010
+1519227249888	Marionette	WARN	TLS certificate errors will be ignored for this session
+Feb 21, 2018 5:34:10 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+1519227252622	Marionette	INFO	New connections will no longer be accepted
+]]></system-err>
+</testsuite>
