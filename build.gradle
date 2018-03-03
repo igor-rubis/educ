@@ -22,5 +22,4 @@ task mishaTest(type: Test) {
     systemProperties(System.properties as Map)
     testLogging.exceptionFormat = 'full'
     testLogging.showExceptions = true
-    maxParallelForks = 2
 }

@@ -1,5 +1,6 @@
 package com.admanic.misha
 
+import io.github.bonigarcia.wdm.ChromeDriverManager
 import io.github.bonigarcia.wdm.FirefoxDriverManager
 import org.junit.After
 import org.junit.Test
@@ -14,9 +15,10 @@ import static org.hamcrest.MatcherAssert.assertThat
 import static org.hamcrest.core.IsEqual.equalTo
 
 class FirstTest {
+
     WebDriver driver
 
-    @Test
+//    @Test
     void firstTest1() {
         FirefoxDriverManager.getInstance().setup()
         driver = new FirefoxDriver()
@@ -40,7 +42,32 @@ class FirstTest {
 
         System.out.println("Page title is: " + driver.getTitle())
 
-        assertThat(driver.getTitle().to, equalTo('Cheese! - Пошук Google'))
+        assertThat(driver.getTitle(), equalTo('Cheese! - Пошук Google'))
+    }
+
+    @Test
+    void firstTest2() {
+        FirefoxDriverManager.getInstance().setup()
+        driver = new FirefoxDriver()
+
+        driver.get("https://hotline.ua/")
+
+        def cityPopUpCloseButton = driver.findElement(By.cssSelector("[data-dropdown-id='confirm-city-detect'] .close"))
+        cityPopUpCloseButton.click()
+
+        def element = driver.findElement(By.name("q"))
+
+        element.clear()
+        element.sendKeys("iphone x")
+
+        element.submit()
+
+        WebDriverWait wait = new WebDriverWait(driver, 10)
+        WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector('div.pages-list [data-page="1"]'))
+
+        WebElement element1 = driver.findElement(By.cssSelector('div.pages-list [data-page="1"]'))
+        element1.click()
+
     }
 
     @After
