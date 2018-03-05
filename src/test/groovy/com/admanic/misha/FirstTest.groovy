@@ -1,6 +1,5 @@
 package com.admanic.misha
 
-import io.github.bonigarcia.wdm.ChromeDriverManager
 import io.github.bonigarcia.wdm.FirefoxDriverManager
 import org.junit.After
 import org.junit.Test
@@ -10,6 +9,8 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.support.ui.ExpectedCondition
 import org.openqa.selenium.support.ui.WebDriverWait
+
+import java.util.concurrent.TimeUnit
 
 import static org.hamcrest.MatcherAssert.assertThat
 import static org.hamcrest.core.IsEqual.equalTo
@@ -62,10 +63,9 @@ class FirstTest {
 
         element.submit()
 
-        WebDriverWait wait = new WebDriverWait(driver, 10)
-        WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector('div.pages-list [data-page="1"]'))
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
 
-        WebElement element1 = driver.findElement(By.cssSelector('div.pages-list [data-page="1"]'))
+        WebElement element1 = driver.findElement(By.cssSelector('div.pages-list [data-page="2"]'))
         element1.click()
 
     }
