@@ -8,9 +8,8 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.support.ui.ExpectedCondition
+import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
-
-import java.util.concurrent.TimeUnit
 
 import static org.hamcrest.MatcherAssert.assertThat
 import static org.hamcrest.core.IsEqual.equalTo
@@ -46,7 +45,7 @@ class FirstTest {
         assertThat(driver.getTitle(), equalTo('Cheese! - Пошук Google'))
     }
 
-    @Test
+//    @Test
     void firstTest2() {
         FirefoxDriverManager.getInstance().setup()
         driver = new FirefoxDriver()
@@ -63,12 +62,19 @@ class FirstTest {
 
         element.submit()
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
+        def explicitWait = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector('div.pages-list [data-page="2"]')))
 
-        WebElement element1 = driver.findElement(By.cssSelector('div.pages-list [data-page="2"]'))
+        def element1 = driver.findElement(By.cssSelector('div.pages-list [data-page="2"]'))
         element1.click()
 
     }
+
+    @Test
+    void firstTest3() {
+        FirefoxDriverManager.getInstance().setup()
+        driver = new FirefoxDriver()
+
+        driver.get("https://hotline.ua/")
 
     @After
     void tearDown() {
