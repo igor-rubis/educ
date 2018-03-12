@@ -18,7 +18,7 @@ class FirstTest {
 
     WebDriver driver
 
-//    @Test
+    @Test
     void firstTest1() {
         FirefoxDriverManager.getInstance().setup()
         driver = new FirefoxDriver()
@@ -45,7 +45,7 @@ class FirstTest {
         assertThat(driver.getTitle(), equalTo('Cheese! - Пошук Google'))
     }
 
-//    @Test
+    @Test
     void firstTest2() {
         FirefoxDriverManager.getInstance().setup()
         driver = new FirefoxDriver()
@@ -67,14 +67,6 @@ class FirstTest {
         def element1 = driver.findElement(By.cssSelector('div.pages-list [data-page="2"]'))
         element1.click()
 
-    }
-
-    @Test
-    void firstTest3() {
-        FirefoxDriverManager.getInstance().setup()
-        driver = new FirefoxDriver()
-
-        driver.get("https://hotline.ua/")
     }
 
     @After
