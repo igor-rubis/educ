@@ -75,6 +75,7 @@ class FirstTest {
         driver = new FirefoxDriver()
 
         driver.get("https://hotline.ua/")
+    }
 
     @After
     void tearDown() {
