@@ -8,15 +8,17 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.support.ui.ExpectedCondition
+import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 
 import static org.hamcrest.MatcherAssert.assertThat
 import static org.hamcrest.core.IsEqual.equalTo
 
 class FirstTest {
+
     WebDriver driver
 
-    @Test
+//    @Test
     void firstTest1() {
         FirefoxDriverManager.getInstance().setup()
         driver = new FirefoxDriver()
@@ -40,8 +42,39 @@ class FirstTest {
 
         System.out.println("Page title is: " + driver.getTitle())
 
-        assertThat(driver.getTitle().to, equalTo('Cheese! - Пошук Google'))
+        assertThat(driver.getTitle(), equalTo('Cheese! - Пошук Google'))
     }
+
+//    @Test
+    void firstTest2() {
+        FirefoxDriverManager.getInstance().setup()
+        driver = new FirefoxDriver()
+
+        driver.get("https://hotline.ua/")
+
+        def cityPopUpCloseButton = driver.findElement(By.cssSelector("[data-dropdown-id='confirm-city-detect'] .close"))
+        cityPopUpCloseButton.click()
+
+        def element = driver.findElement(By.name("q"))
+
+        element.clear()
+        element.sendKeys("iphone x")
+
+        element.submit()
+
+        def explicitWait = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector('div.pages-list [data-page="2"]')))
+
+        def element1 = driver.findElement(By.cssSelector('div.pages-list [data-page="2"]'))
+        element1.click()
+
+    }
+
+    @Test
+    void firstTest3() {
+        FirefoxDriverManager.getInstance().setup()
+        driver = new FirefoxDriver()
+
+        driver.get("https://hotline.ua/")
 
     @After
     void tearDown() {
