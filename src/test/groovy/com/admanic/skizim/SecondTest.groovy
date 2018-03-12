@@ -10,7 +10,6 @@ import org.openqa.selenium.firefox.FirefoxDriver
 
 import static org.hamcrest.CoreMatchers.containsString
 import static org.hamcrest.MatcherAssert.assertThat
-import static org.hamcrest.text.IsEqualIgnoringCase.*
 
 class SecondTest {
 
@@ -23,7 +22,7 @@ class SecondTest {
 
         driver.get("https://pn.com.ua/")
 
-        WebElement laptops = driver.findElement(By.linkText("Ноутбуки, планшеты"))
+        WebElement laptops = driver.findElement(By.cssSelector('[href*="1003"]'))
         laptops.click()
 
         WebElement firstItem = driver.findElement(By.cssSelector(".catalog-block-head>a"))
