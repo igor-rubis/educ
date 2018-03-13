@@ -29,7 +29,7 @@ task mishaTest(type: Test) {
 }
 
 task skizimTest(type: Test) {
-    include "**/skizim/**/SecondTest.*"
+    include "**/skizim/**/*.*"
     dependsOn(clean)
     ignoreFailures(true)
     useJUnit()
