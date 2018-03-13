@@ -5,19 +5,22 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 
 class Browser {
-    private static WebDriver driver
+    private static WebDriver DRIVER
 
     private Browser() {}
 
     static WebDriver getInstance() {
-        if (driver == null) {
+        if (!DRIVER) {
             FirefoxDriverManager.getInstance().setup()
-            driver = new FirefoxDriver()
+            DRIVER = new FirefoxDriver()
         }
-        return driver
+        return DRIVER
     }
 
     static void killBrowser() {
-        driver.quit()
+        if (DRIVER) {
+            DRIVER.quit()
+            DRIVER = null
+        }
     }
 }
