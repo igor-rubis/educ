@@ -18,14 +18,13 @@ dependencies {
 }
 
 task mishaTest(type: Test) {
-    include "**/misha/**/*.*"
+    include "**/misha/**/${System.getProperty('currentTestMisha', '*')}.*"
     dependsOn(clean)
     ignoreFailures(true)
     useJUnit()
     systemProperties(System.properties as Map)
     testLogging.exceptionFormat = 'full'
     testLogging.showExceptions = true
-    maxParallelForks = 2
 }
 
 task skizimTest(type: Test) {
