@@ -1,4 +1,4 @@
-package com.admanic.skizim
+package com.admanic.commons.browser
 
 import io.github.bonigarcia.wdm.ChromeDriverManager
 import io.github.bonigarcia.wdm.FirefoxDriverManager
@@ -13,12 +13,14 @@ class Browser {
 
     static WebDriver getInstance() {
         if (!DRIVER) {
-            switch (System.getProperty('browser', '*')) {
-                case 'firefox': FirefoxDriverManager.getInstance().setup()
-                    DRIVER = new FirefoxDriver()
-                    break
-                case 'chrome': ChromeDriverManager.getInstance().setup()
+            switch (System.getProperty('browser', 'chrome')) {
+                case 'chrome':
+                    ChromeDriverManager.getInstance().setup()
                     DRIVER = new ChromeDriver()
+                    break
+                case 'firefox':
+                    FirefoxDriverManager.getInstance().setup()
+                    DRIVER = new FirefoxDriver()
                     break
             }
         }
