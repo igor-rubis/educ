@@ -1,5 +1,6 @@
 package com.admanic.misha
 
+import com.admanic.commons.browser.Browser
 import org.junit.After
 import org.junit.Test
 import org.openqa.selenium.By
@@ -8,7 +9,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.ui.ExpectedCondition
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
-import com.admanic.commons.browser.Browser
+
 import static org.hamcrest.MatcherAssert.assertThat
 import static org.hamcrest.core.IsEqual.equalTo
 
