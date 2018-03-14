@@ -28,12 +28,11 @@ task mishaTest(type: Test) {
 }
 
 task skizimTest(type: Test) {
-    include "**/skizim/**/*.*"
+    include "**/skizim/**/${System.getProperty('currentTestSkizim', '*')}.*"
     dependsOn(clean)
     ignoreFailures(true)
     useJUnit()
     systemProperties(System.properties as Map)
     testLogging.exceptionFormat = 'full'
     testLogging.showExceptions = true
-    maxParallelForks = 2
 }
