@@ -1,4 +1,4 @@
-package com.admanic.misha
+package com.admanic.commons.browser
 
 import io.github.bonigarcia.wdm.ChromeDriverManager
 import io.github.bonigarcia.wdm.FirefoxDriverManager
