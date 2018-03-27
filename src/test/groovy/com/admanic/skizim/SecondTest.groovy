@@ -14,9 +14,10 @@ class SecondTest {
         HomePage home = new HomePage()
         home.openLaptops()
         LaptopsPage laptops = new LaptopsPage()
+        String FirstItem = laptops.getFirstItemText()
         laptops.openFirstItem()
         ProductPage product = new ProductPage()
-        assertThat(product.getNameText(), containsString (laptops.getFirstItemText()))
+        assertThat(product.getNameText(), containsString (FirstItem))
     }
     @After
     void tearDown() {
